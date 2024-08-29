@@ -196,183 +196,189 @@ $our_popular_section_url = get_field('our_popular_section_url');
 													<div class="hover-con-main">
 														<h2><?php the_title(); ?></h2>
 														<p><?php the_excerpt(); ?></p>
-														<a href="JavaScript:void(0)">Read More</a>
+														<?php if (ICL_LANGUAGE_CODE == 'nl') { ?>
+															<a href="JavaScript:void(0)">Lees meer</a>
+														<?php } ?>
+														<?php if (ICL_LANGUAGE_CODE == 'en') { ?>
+															<a href="JavaScript:void(0)">Read More</a>
+														<?php }  ?>
+
+														</div>
+														</div>
+														</div>
+														<div class="event-date-main">
+														<div class="event-date-inner">
+														<?php
+														$date = get_the_date('d M');
+														echo '<h3>' . $date . '</h3>';
+														?>
 													</div>
 												</div>
 											</div>
-											<div class="event-date-main">
-												<div class="event-date-inner">
-													<?php
-													$date = get_the_date('d M');
-													echo '<h3>' . $date . '</h3>';
-													?>
+										</div>
+									</div>
+								</div>
+								<?php
+							endwhile;
+						endif;
+						wp_reset_postdata();
+						?>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="event-bottom-button">
+			<div class="uk-container">
+				<div class="uk-grid">
+					<div class="uk-width-1">
+						<div class="event-btn-main">
+							<a href="JavaScript:void(0)">View all Events</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="popular-course-main-sec">
+		<div class="uk-container">
+			<div class="uk-grid">
+				<div class="uk-width-1-2">
+					<div class="popular-course-left">
+						<div class="popular-course-left-inner">
+							<h2><?php echo $our_popular_section_title;?></h2>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetti industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gall of type and scrambled it to make a type specimen book.</p>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetti industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+							<a href="JavaScript:void(0)">
+								<?php echo $our_popular_section_url['title'];?>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="uk-width-1-2 custom-pos">
+			<div class="popular-course-slider-main">
+				<div class="swiper-container popular_slider">
+					<div class="swiper-wrapper">
+						<?php
+						if( have_rows('our_popular_right_section') ):
+							while( have_rows('our_popular_right_section') ) : the_row();
+								$our_popular_image = get_sub_field('our_popular_image');
+								$our_popular_title = get_sub_field('our_popular_title');
+								$our_popular_description = get_sub_field('our_popular_description');
+								$our_popular_url = get_sub_field('our_popular_url');
+								?>
+								<div class="swiper-slide">
+									<div class="popular-item-block">
+										<div class="popular-item-inner">
+											<div class="popular-img-area">
+												<img src="<?php echo $our_popular_image['url'];?>" alt="">
+											</div>
+											<div class="popular-content-block">
+												<div class="popular-content-inner">
+													<h3><?php echo $our_popular_title;?></h3>
+													<p><?php echo $our_popular_description;?></p>
+													<a href="JavaScript:void(0)">
+														<?php echo $our_popular_url['title'];?>
+													</a>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<?php
-						endwhile;
-					endif;
-					wp_reset_postdata();
-					?>
+								<?php 
+
+							endwhile;
+						endif;
+						?>
+
+					</div>
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class="event-bottom-button">
+	</section>
+	<section class="clientsay-main-sec">
 		<div class="uk-container">
 			<div class="uk-grid">
 				<div class="uk-width-1">
-					<div class="event-btn-main">
-						<a href="JavaScript:void(0)">View all Events</a>
+					<div class="client-say-heading">
+						<h2><?php echo $client_title; ?></h2>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-</section>
-<section class="popular-course-main-sec">
-	<div class="uk-container">
-		<div class="uk-grid">
-			<div class="uk-width-1-2">
-				<div class="popular-course-left">
-					<div class="popular-course-left-inner">
-						<h2><?php echo $our_popular_section_title;?></h2>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetti industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a gall of type and scrambled it to make a type specimen book.</p>
-						<p>Lorem Ipsum is simply dummy text of the printing and typesetti industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-						<a href="JavaScript:void(0)">
-							<?php echo $our_popular_section_url['title'];?>
-						</a>
+			<div class="clientsay-slider-main">
+				<div class="clientsay-slider-inner">
+					<div class="quote-shap">
+						<svg width="119" height="100" viewBox="0 0 119 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<g opacity="0.1">
+								<path d="M40.9089 45.455H24.9996C23.1055 45.455 21.4953 44.7923 20.1694 43.4664C18.8442 42.1405 18.1808 40.5308 18.1808 38.6362V36.3645C18.1808 31.3452 19.9567 27.0606 23.5082 23.509C27.0596 19.9587 31.345 18.1827 36.3637 18.1827H40.9089C42.1397 18.1827 43.2047 17.7327 44.1047 16.8335C45.0042 15.9337 45.454 14.8687 45.454 13.6376V4.54587C45.454 3.315 45.004 2.24906 44.1047 1.34928C43.2049 0.450757 42.14 0 40.9089 0H36.3637C31.439 0 26.7406 0.959724 22.2657 2.87643C17.7912 4.79439 13.921 7.38698 10.6535 10.6545C7.38623 13.9205 4.79439 17.7909 2.87668 22.2659C0.958977 26.7404 0 31.44 0 36.3642V86.3631C0 90.153 1.32515 93.371 3.97671 96.0235C6.62851 98.6746 9.84898 100 13.6366 100H40.9106C44.698 100 47.9175 98.6746 50.5695 96.0235C53.2206 93.371 54.5465 90.153 54.5465 86.3631V59.0916C54.5465 55.3025 53.2206 52.0845 50.5678 49.4317C47.917 46.7809 44.6963 45.455 40.9089 45.455Z" fill="#2E3764"/>
+								<path d="M114.207 49.4317C111.556 46.7809 108.337 45.455 104.548 45.455H88.6393C86.7462 45.455 85.1345 44.7923 83.8108 43.4664C82.4844 42.1405 81.8222 40.5308 81.8222 38.6362V36.3645C81.8222 31.3452 83.5981 27.0606 87.148 23.509C90.698 19.9587 94.9832 18.1827 100.004 18.1827H104.549C105.78 18.1827 106.845 17.7327 107.745 16.8335C108.643 15.9337 109.095 14.8687 109.095 13.6376V4.54587C109.095 3.315 108.644 2.24906 107.745 1.34928C106.846 0.450757 105.78 0 104.549 0H100.004C95.077 0 90.3796 0.959724 85.9034 2.87643C81.4297 4.79439 77.5607 7.38698 74.2932 10.6545C71.0257 13.9205 68.4326 17.7909 66.5157 22.2659C64.5985 26.7404 63.6382 31.44 63.6382 36.3642V86.3631C63.6382 90.153 64.9646 93.371 67.6154 96.0235C70.2665 98.6746 73.4862 100 77.2744 100H104.547C108.335 100 111.555 98.6746 114.206 96.0235C116.858 93.371 118.182 90.153 118.182 86.3631V59.0916C118.182 55.3022 116.858 52.0845 114.207 49.4317Z" fill="#2E3764"/>
+							</g>
+						</svg>
 					</div>
+					<div class="client-slider-block">
+						<div class="swiper-container gallery-top">
+							<div class="swiper-wrapper">
+								<?php
+								if( have_rows('client_description') ):
+									while( have_rows('client_description') ) : the_row();
+										$long_desription = get_sub_field('long_desription'); ?>
+										<div class="swiper-slide">
+											<div class="clientsay-slider-item">
+												<div class="clientsay-slider-item-inner">
+													<h3><?php echo $long_desription;?></h3>
+												</div>
+											</div>
+										</div>	
+										<?php 
+									endwhile;
+								endif;
+								?>
+
+							</div>
+						</div>						    
+					</div>						
 				</div>
-			</div>
-		</div>
-	</div>
-	<div class="uk-width-1-2 custom-pos">
-		<div class="popular-course-slider-main">
-			<div class="swiper-container popular_slider">
-				<div class="swiper-wrapper">
-					<?php
-					if( have_rows('our_popular_right_section') ):
-						while( have_rows('our_popular_right_section') ) : the_row();
-							$our_popular_image = get_sub_field('our_popular_image');
-							$our_popular_title = get_sub_field('our_popular_title');
-							$our_popular_description = get_sub_field('our_popular_description');
-							$our_popular_url = get_sub_field('our_popular_url');
-							?>
-							<div class="swiper-slide">
-								<div class="popular-item-block">
-									<div class="popular-item-inner">
-										<div class="popular-img-area">
-											<img src="<?php echo $our_popular_image['url'];?>" alt="">
-										</div>
-										<div class="popular-content-block">
-											<div class="popular-content-inner">
-												<h3><?php echo $our_popular_title;?></h3>
-												<p><?php echo $our_popular_description;?></p>
-												<a href="JavaScript:void(0)">
-													<?php echo $our_popular_url['title'];?>
-												</a>
+				<div class="swiper-container gallery-thumbs">
+					<div class="swiper-wrapper">
+						<?php
+						if( have_rows('client_say_gallary_slide') ):
+							while( have_rows('client_say_gallary_slide') ) : the_row();
+								$client_image = get_sub_field('client_image'); 
+								$client_name = get_sub_field('client_name'); 
+								$client_address = get_sub_field('client_address'); 
+								?>
+								<div class="swiper-slide">
+									<div class="clientsay-thumb-main">
+										<div class="clientsay-thumb-inner">
+											<div class="clientsay-thumb-row">
+												<div class="client-thumb-img">
+													<img src="<?php echo $client_image['url'];?>" alt="">
+												</div>
+												<div class="client-thumb-heading">
+													<div class="client-thumb-heading-inner">
+														<h3><?php echo $client_name; ?></h3>
+														<p><?php echo $client_address;?></p>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<?php 
-
-						endwhile;
-					endif;
-					?>
-
+								<?php 
+							endwhile;
+						endif;
+						?>					    
+					</div>
 				</div>
+				<!-- Add Arrows -->
 				<div class="swiper-button-next"></div>
 				<div class="swiper-button-prev"></div>
 			</div>
 		</div>
 	</div>
-</section>
-<section class="clientsay-main-sec">
-	<div class="uk-container">
-		<div class="uk-grid">
-			<div class="uk-width-1">
-				<div class="client-say-heading">
-					<h2><?php echo $client_title; ?></h2>
-				</div>
-			</div>
-		</div>
-		<div class="clientsay-slider-main">
-			<div class="clientsay-slider-inner">
-				<div class="quote-shap">
-					<svg width="119" height="100" viewBox="0 0 119 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<g opacity="0.1">
-							<path d="M40.9089 45.455H24.9996C23.1055 45.455 21.4953 44.7923 20.1694 43.4664C18.8442 42.1405 18.1808 40.5308 18.1808 38.6362V36.3645C18.1808 31.3452 19.9567 27.0606 23.5082 23.509C27.0596 19.9587 31.345 18.1827 36.3637 18.1827H40.9089C42.1397 18.1827 43.2047 17.7327 44.1047 16.8335C45.0042 15.9337 45.454 14.8687 45.454 13.6376V4.54587C45.454 3.315 45.004 2.24906 44.1047 1.34928C43.2049 0.450757 42.14 0 40.9089 0H36.3637C31.439 0 26.7406 0.959724 22.2657 2.87643C17.7912 4.79439 13.921 7.38698 10.6535 10.6545C7.38623 13.9205 4.79439 17.7909 2.87668 22.2659C0.958977 26.7404 0 31.44 0 36.3642V86.3631C0 90.153 1.32515 93.371 3.97671 96.0235C6.62851 98.6746 9.84898 100 13.6366 100H40.9106C44.698 100 47.9175 98.6746 50.5695 96.0235C53.2206 93.371 54.5465 90.153 54.5465 86.3631V59.0916C54.5465 55.3025 53.2206 52.0845 50.5678 49.4317C47.917 46.7809 44.6963 45.455 40.9089 45.455Z" fill="#2E3764"/>
-							<path d="M114.207 49.4317C111.556 46.7809 108.337 45.455 104.548 45.455H88.6393C86.7462 45.455 85.1345 44.7923 83.8108 43.4664C82.4844 42.1405 81.8222 40.5308 81.8222 38.6362V36.3645C81.8222 31.3452 83.5981 27.0606 87.148 23.509C90.698 19.9587 94.9832 18.1827 100.004 18.1827H104.549C105.78 18.1827 106.845 17.7327 107.745 16.8335C108.643 15.9337 109.095 14.8687 109.095 13.6376V4.54587C109.095 3.315 108.644 2.24906 107.745 1.34928C106.846 0.450757 105.78 0 104.549 0H100.004C95.077 0 90.3796 0.959724 85.9034 2.87643C81.4297 4.79439 77.5607 7.38698 74.2932 10.6545C71.0257 13.9205 68.4326 17.7909 66.5157 22.2659C64.5985 26.7404 63.6382 31.44 63.6382 36.3642V86.3631C63.6382 90.153 64.9646 93.371 67.6154 96.0235C70.2665 98.6746 73.4862 100 77.2744 100H104.547C108.335 100 111.555 98.6746 114.206 96.0235C116.858 93.371 118.182 90.153 118.182 86.3631V59.0916C118.182 55.3022 116.858 52.0845 114.207 49.4317Z" fill="#2E3764"/>
-						</g>
-					</svg>
-				</div>
-				<div class="client-slider-block">
-					<div class="swiper-container gallery-top">
-						<div class="swiper-wrapper">
-							<?php
-							if( have_rows('client_description') ):
-								while( have_rows('client_description') ) : the_row();
-									$long_desription = get_sub_field('long_desription'); ?>
-									<div class="swiper-slide">
-										<div class="clientsay-slider-item">
-											<div class="clientsay-slider-item-inner">
-												<h3><?php echo $long_desription;?></h3>
-											</div>
-										</div>
-									</div>	
-									<?php 
-								endwhile;
-							endif;
-							?>
-
-						</div>
-					</div>						    
-				</div>						
-			</div>
-			<div class="swiper-container gallery-thumbs">
-				<div class="swiper-wrapper">
-					<?php
-					if( have_rows('client_say_gallary_slide') ):
-						while( have_rows('client_say_gallary_slide') ) : the_row();
-							$client_image = get_sub_field('client_image'); 
-							$client_name = get_sub_field('client_name'); 
-							$client_address = get_sub_field('client_address'); 
-							?>
-							<div class="swiper-slide">
-								<div class="clientsay-thumb-main">
-									<div class="clientsay-thumb-inner">
-										<div class="clientsay-thumb-row">
-											<div class="client-thumb-img">
-												<img src="<?php echo $client_image['url'];?>" alt="">
-											</div>
-											<div class="client-thumb-heading">
-												<div class="client-thumb-heading-inner">
-													<h3><?php echo $client_name; ?></h3>
-													<p><?php echo $client_address;?></p>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<?php 
-						endwhile;
-					endif;
-					?>					    
-				</div>
-			</div>
-			<!-- Add Arrows -->
-			<div class="swiper-button-next"></div>
-			<div class="swiper-button-prev"></div>
-		</div>
-	</div>
-</div>
 </div>
 </section>
 <section class="membership-main-sec">
@@ -433,9 +439,7 @@ $our_popular_section_url = get_field('our_popular_section_url');
 			<div class="uk-grid">
 				<div class="uk-width-1">
 					<div class="friends-form-area">
-						<form>
-							<?php   echo do_shortcode($form_shortcode); ?>
-						</form>
+						<?php echo do_shortcode('[contact-form-7 id="214a150" title="Contact"]'); ?>
 					</div>
 					<div class="bottom-form-text">
 						<p><?php echo $form_bottom_description; ?></p>
@@ -528,7 +532,7 @@ $our_popular_section_url = get_field('our_popular_section_url');
 						endwhile;
 					endif;
 					?>
-					</div>
+				</div>
 			</div>
 			<div class="swiper-button-next next-logo"></div>
 			<div class="swiper-button-prev prev-logo"></div>

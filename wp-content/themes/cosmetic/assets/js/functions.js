@@ -87,11 +87,12 @@ Amplitude.init({
 /*
   Shows the playlist
 */
-document.getElementsByClassName('show-playlist')[0].addEventListener('click', function(){
-  document.getElementById('white-player-playlist-container').classList.remove('slide-out-top');
-  document.getElementById('white-player-playlist-container').classList.add('slide-in-top');
-  document.getElementById('white-player-playlist-container').style.display = "block";
-});
+// document.getElementsByClassName('show-playlist')[0].addEventListener('click', function(){
+//   document.getElementById('white-player-playlist-container').classList.remove('slide-out-top');
+//   document.getElementById('white-player-playlist-container').classList.add('slide-in-top');
+//   document.getElementById('white-player-playlist-container').style.display = "block";
+// });
+
 
 /*
   Hides the playlist
